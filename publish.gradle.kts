@@ -56,14 +56,14 @@ publishing {
     register("mavenJava", MavenPublication::class) {
       from(components["java"])
       pom {
-        name.set("kotest-extension-embedded-kakfa")
+        name.set("kotest-extensions-embedded-kafka")
         description.set("Kotest extension for embedded kafka")
-        url.set("http://www.github.com/kotest/kotest-extension-embedded-kafka")
+        url.set("http://www.github.com/kotest/kotest-extensions-embedded-kafka")
 
         scm {
-          connection.set("scm:git:http://www.github.com/kotest/kotest-extension-embedded-kafka")
+          connection.set("scm:git:http://www.github.com/kotest/kotest-extensions-embedded-kafka")
           developerConnection.set("scm:git:http://github.com/sksamuel")
-          url.set("http://www.github.com/kotest/kotest-extension-embedded-kafka")
+          url.set("http://www.github.com/kotest/kotest-extensions-embedded-kafka")
         }
 
         licenses {
