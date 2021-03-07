@@ -59,3 +59,5 @@ allprojects {
       }
    }
 }
+
+apply("./publish.gradle.kts")
