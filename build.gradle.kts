@@ -21,7 +21,6 @@ plugins {
    signing
    maven
    `maven-publish`
-   id("io.kotest") version "0.2.6"
    kotlin("jvm").version(Libs.kotlinVersion)
 }
 
