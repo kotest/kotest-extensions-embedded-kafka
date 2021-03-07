@@ -15,14 +15,24 @@ import org.apache.kafka.common.serialization.BytesSerializer
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.kafka.common.serialization.StringSerializer
 import org.apache.kafka.common.utils.Bytes
+import scala.Predef
 import java.util.Properties
 
 val embeddedKafkaListener: EmbeddedKafkaListener = EmbeddedKafkaListener(EmbeddedKafkaConfig.defaultConfig())
 
 class EmbeddedKafkaListener(
    private val config: EmbeddedKafkaConfig,
-) :
-   TestListener {
+) : TestListener {
+
+   constructor(port: Int) : this(
+      EmbeddedKafkaConfig.apply(
+         port,
+         EmbeddedKafkaConfig.defaultZookeeperPort(),
+         Predef.Map().empty(),
+         Predef.Map().empty(),
+         Predef.Map().empty(),
+      )
+   )
 
    val port: Int = config.kafkaPort()
 
