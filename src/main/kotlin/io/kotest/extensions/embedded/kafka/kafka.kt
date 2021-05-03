@@ -38,6 +38,8 @@ class EmbeddedKafkaListener(
 
    val host: String = "127.0.0.1"
 
+   val bootstrapServer = "$host:$port"
+
    override suspend fun beforeSpec(spec: Spec) {
       EmbeddedKafka.start(config)
       while (!EmbeddedKafka.isRunning()) {
