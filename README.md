@@ -14,6 +14,10 @@ Please create issues on the main kotest [board](https://github.com/kotest/kotest
 
 ### Changelog
 
+#### 1.0.2
+
+* Added `bootstrapServer` val to listener.
+
 #### 1.0.1
 
-* First release
+* First release after migrating from main kotest repo to a top level project.
