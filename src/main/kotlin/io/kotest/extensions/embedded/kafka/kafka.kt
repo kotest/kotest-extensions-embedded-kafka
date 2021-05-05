@@ -49,6 +49,9 @@ class EmbeddedKafkaListener(
 
    override suspend fun afterSpec(spec: Spec) {
       EmbeddedKafka.stop()
+      while (EmbeddedKafka.isRunning()) {
+         Thread.sleep(100)
+      }
    }
 
    /**
