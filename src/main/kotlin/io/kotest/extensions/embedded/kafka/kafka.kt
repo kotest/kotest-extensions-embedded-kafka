@@ -34,6 +34,16 @@ class EmbeddedKafkaListener(
       )
    )
 
+   constructor(kafkaPort: Int, zookeeperPort: Int) : this(
+      EmbeddedKafkaConfig.apply(
+         kafkaPort,
+         zookeeperPort,
+         Predef.Map().empty(),
+         Predef.Map().empty(),
+         Predef.Map().empty(),
+      )
+   )
+
    val port: Int = config.kafkaPort()
 
    val host: String = "127.0.0.1"

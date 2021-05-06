@@ -14,6 +14,10 @@ Please create issues on the main kotest [board](https://github.com/kotest/kotest
 
 ### Changelog
 
+#### 1.0.4
+
+* Added overload to specify zookeeper port
+
 #### 1.0.3
 
 * Changed shutdown listener to wait for server shutdown.
