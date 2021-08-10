@@ -2,10 +2,10 @@
 
 package io.kotest.extensions.embedded.kafka
 
+import io.github.embeddedkafka.EmbeddedKafka
+import io.github.embeddedkafka.EmbeddedKafkaConfig
 import io.kotest.core.listeners.TestListener
 import io.kotest.core.spec.Spec
-import net.manub.embeddedkafka.EmbeddedKafka
-import net.manub.embeddedkafka.EmbeddedKafkaConfig
 import org.apache.kafka.clients.CommonClientConfigs
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.clients.consumer.KafkaConsumer

@@ -1,9 +1,9 @@
 package io.kotest.extensions.embedded.kafka
 
+import io.github.embeddedkafka.EmbeddedKafka
 import io.kotest.assertions.timing.eventually
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
-import net.manub.embeddedkafka.EmbeddedKafka
 import org.apache.kafka.clients.producer.ProducerRecord
 import kotlin.time.seconds
 
