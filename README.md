@@ -14,6 +14,10 @@ Please create issues on the main kotest [board](https://github.com/kotest/kotest
 
 ### Changelog
 
+#### 1.0.5
+
+* Upgraded to Embedded Kafka 2.8.0
+
 #### 1.0.4
 
 * Added overload to specify zookeeper port
