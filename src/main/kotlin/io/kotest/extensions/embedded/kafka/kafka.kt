@@ -1,4 +1,4 @@
-@file:Suppress("MemberVisibilityCanBePrivate")
+@file:Suppress("MemberVisibilityCanBePrivate", "BlockingMethodInNonBlockingContext")
 
 package io.kotest.extensions.embedded.kafka
 
@@ -80,7 +80,7 @@ class EmbeddedKafkaListener(
     * Returns a kafka consumer subscribed to the given topic on the embedded broker.
     */
    fun stringStringConsumer(topic: String, configure: Properties.() -> Unit = {}): KafkaConsumer<String, String> {
-      val consumer = stringStringConsumer()
+      val consumer = stringStringConsumer(configure)
       consumer.subscribe(listOf(topic))
       return consumer
    }
@@ -101,7 +101,7 @@ class EmbeddedKafkaListener(
     * Returns a kafka consumer subscribed to the given topic on the embedded broker.
     */
    fun bytesBytesConsumer(topic: String, configure: Properties.() -> Unit = {}): KafkaConsumer<Bytes, Bytes> {
-      val consumer = bytesBytesConsumer()
+      val consumer = bytesBytesConsumer(configure)
       consumer.subscribe(listOf(topic))
       return consumer
    }
