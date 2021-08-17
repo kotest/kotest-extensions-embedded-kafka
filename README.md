@@ -14,6 +14,10 @@ Please create issues on the main kotest [board](https://github.com/kotest/kotest
 
 ### Changelog
 
+#### 1.0.6
+
+* Java 8 compatible release.
+
 #### 1.0.5
 
 * Upgraded to Embedded Kafka 2.8.0
