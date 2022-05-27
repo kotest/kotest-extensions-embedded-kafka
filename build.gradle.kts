@@ -12,7 +12,6 @@ plugins {
    id("java-library")
    id("maven-publish")
    signing
-   maven
    `maven-publish`
    kotlin("jvm").version(Libs.kotlinVersion)
 }
