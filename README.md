@@ -14,6 +14,18 @@ Please create issues on the main kotest [board](https://github.com/kotest/kotest
 
 ### Changelog
 
+#### 2.0.0
+
+This change likely includes breaking changes since [embedded-kafka](https://github.com/embeddedkafka/embedded-kafka)
+has gone through a major version upgrade.
+
+* Upgrade embedded-kafka from 2.8.0 to 3.3.2
+* Upgrade Kotlin from 1.4.31 to 1.6.21 (this matches kotest core as of v5.5.5)
+* Continued support of jvm target 1.8
+* Upgrade project gradle version from 7.5.1 to 7.6
+* Remove deprecated code usage
+* Switch to latest gradle build practices
+
 #### 1.0.6
 
 * Java 8 compatible release.

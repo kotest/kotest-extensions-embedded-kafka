@@ -1,56 +1,48 @@
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-buildscript {
-   repositories {
-      mavenCentral()
-   }
-}
-
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-   java
-   `java-library`
-   id("java-library")
-   id("maven-publish")
-   signing
-   `maven-publish`
-   kotlin("jvm").version(Libs.kotlinVersion)
+   alias(libs.plugins.kotlin.jvm)
 }
 
-allprojects {
-   apply(plugin = "org.jetbrains.kotlin.jvm")
+dependencies {
+   implementation(libs.kotlin.stdlib)
+   implementation(libs.kotest.framework.api)
+   implementation(libs.embedded.kafka)
 
-   group = Libs.org
-   version = Ci.version
+   testImplementation(libs.kotest.runner.junit5)
+   testImplementation(libs.kotest.assertions)
+   testImplementation(libs.slf4j.simple)
+}
 
-   dependencies {
-      implementation(Libs.Kotlin.stdlib)
-      implementation(Libs.Kotest.api)
-      implementation(Libs.embeddedkafka.kafka)
-      testImplementation(Libs.Kotest.junit5)
-      testImplementation(Libs.Kotest.assertions)
-   }
-
-   tasks.named<Test>("test") {
-      useJUnitPlatform()
-      testLogging {
-         showExceptions = true
-         showStandardStreams = true
-         exceptionFormat = TestExceptionFormat.FULL
-      }
-   }
-
-   tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-      kotlinOptions.jvmTarget = "1.8"
-      kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.time.ExperimentalTime"
-   }
-
-   repositories {
-      mavenLocal()
-      mavenCentral()
-      maven {
-         url = uri("https://oss.sonatype.org/content/repositories/snapshots")
-      }
+java {
+   toolchain {
+      languageVersion.set(JavaLanguageVersion.of(8))
    }
 }
 
-apply("./publish.gradle.kts")
+tasks.withType<Test>().configureEach {
+   useJUnitPlatform()
+   testLogging {
+      showExceptions = true
+      showStandardStreams = true
+      events = setOf(
+         TestLogEvent.FAILED,
+         TestLogEvent.SKIPPED,
+         TestLogEvent.STANDARD_ERROR,
+         TestLogEvent.STANDARD_OUT
+      )
+      exceptionFormat = TestExceptionFormat.FULL
+   }
+}
+
+tasks.withType<KotlinCompile> {
+   kotlinOptions {
+      freeCompilerArgs += "-opt-in=kotlin.time.ExperimentalTime"
+      jvmTarget = "1.8"
+      apiVersion = "1.6"
+      languageVersion = "1.6"
+   }
+}
