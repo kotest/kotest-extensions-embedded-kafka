@@ -5,7 +5,9 @@ import io.kotest.assertions.timing.eventually
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 import org.apache.kafka.clients.producer.ProducerRecord
-import kotlin.time.seconds
+import java.time.Duration
+import java.time.temporal.ChronoUnit
+import kotlin.time.Duration.Companion.seconds
 
 class EmbeddedKafkaCustomPropertiesListenerTest : FunSpec({
 
@@ -26,7 +28,7 @@ class EmbeddedKafkaCustomPropertiesListenerTest : FunSpec({
 
       val consumer = listener.stringStringConsumer("foo")
       eventually(10.seconds) {
-         consumer.poll(1000).first().value() shouldBe "a"
+         consumer.poll(Duration.of(1, ChronoUnit.SECONDS)).first().value() shouldBe "a"
       }
       consumer.close()
    }

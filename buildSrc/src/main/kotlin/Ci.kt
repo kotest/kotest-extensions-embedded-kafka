@@ -1,5 +1,4 @@
 object Ci {
-
    // this is the version used for building snapshots
    // .GITHUB_RUN_NUMBER-snapshot will be appended
    private const val snapshotBase = "1.0.0"
