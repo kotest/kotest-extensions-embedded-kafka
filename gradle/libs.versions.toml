@@ -1,7 +1,7 @@
 [versions]
 
 kotlin = "1.6.21"
-kotest = "5.5.5"
+kotest = "5.7.0"
 embedded-kafka = "3.5.1"
 slf4j = "2.0.7"
 
