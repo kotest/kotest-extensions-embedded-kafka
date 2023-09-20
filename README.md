@@ -1,5 +1,7 @@
 # kotest-extensions-embedded-kafka
 
+**This project has been deprecated in favour of test containers. See https://kotest.io/docs/extensions/test_containers.html and https://testcontainers.com/modules/kafka/**
+
 A kotest extension that spins up embedded kafka instances using the [embedded-kakfa library](https://github.com/embeddedkafka/embedded-kafka).
 
 See [docs](https://kotest.io/docs/extensions/embedded-kafka.html).
